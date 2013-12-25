@@ -41,7 +41,7 @@
 //Mode Controll
 @property (weak, nonatomic) IBOutlet UIButton *adjustModeButton;
 - (IBAction)pushAdjustModeButton:(id)sender;
-@property int adjustModeFlag;
+@property int adjustMode;
 
 //Ratio Slider
 @property (weak, nonatomic) IBOutlet UISlider *compositSlider;
