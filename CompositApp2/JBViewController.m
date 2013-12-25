@@ -12,6 +12,11 @@
 
 @end
 
+enum ADJUST_MODE {
+    ADJUST_MODE_COMPOSITE = 0,
+    ADJUST_MODE_DRAG = 1
+    };
+
 @implementation JBViewController
 
 - (void)viewDidLoad
@@ -21,12 +26,12 @@
     
     self.isDrag = false;
     self.progress.progress = 1.0;
+    self.adjustModeFlag = ADJUST_MODE_COMPOSITE;
     
     self.imageManager = [JBImageManager new];
     
     [self.modeButton setTitle:[self.imageManager.compositList objectAtIndex:self.imageManager.compositMode] forState:UIControlStateNormal];
     
-    [self.adjustMode setOn:NO];
     [self.resetButton setEnabled:NO];
     [self changeButtonStatus:NO];
     self.scrollView.backgroundColor = [UIColor colorWithWhite:0.3 alpha:1.0];
@@ -40,7 +45,7 @@
 
 -(void)changeButtonStatus:(BOOL)isEnable
 {
-    [self.adjustMode setEnabled:isEnable];
+    [self.adjustModeButton setEnabled:isEnable];
     [self.compositSlider setEnabled:isEnable];
     [self.saveButton setEnabled:isEnable];
     [self.modeButton setEnabled:isEnable];
@@ -80,7 +85,7 @@
 {
     UIView *view = nil;
     if (scrollView == self.scrollView) {
-        if([self.adjustMode isOn] == YES)
+        if(self.adjustModeFlag == ADJUST_MODE_DRAG)
         {
             view = self.baseView;
             [view addSubview:self.layerView];
@@ -100,7 +105,7 @@
 -(void)updateCompositSliderEnableStatus
 {
     BOOL ret = [self.imageManager isNeedRatio];
-    if(self.adjustMode.isOn == YES)
+    if(self.adjustModeFlag == ADJUST_MODE_DRAG)
         ret = false;
     
     [self.compositSlider setEnabled:ret];
@@ -117,31 +122,36 @@
     [self updateImageView];
 }
 
+- (IBAction)resetPoint:(id)sender {
+    if(self.adjustModeFlag == ADJUST_MODE_DRAG ==NO)
+        self.imageManager.needUpdate = YES;
+    self.imageManager.startPoint = CGPointZero;
+    [self updateImageView];
+}
 
-- (IBAction)changeAdjustMode:(id)sender {
+- (IBAction)pushAdjustModeButton:(id)sender {
     
-    if([self.adjustMode isOn] == YES)
+    if(self.adjustModeFlag == ADJUST_MODE_COMPOSITE)
     {
+        self.adjustModeFlag = ADJUST_MODE_DRAG;
+        [self.adjustModeButton setTitle:@"移動モード" forState:UIControlStateNormal];
         [self.modeButton setEnabled:NO];
         [self.saveButton setEnabled:NO];
         [self.resetButton setEnabled:YES];
         [self.nextImageButton setEnabled:NO];
     }
-    else
-    {
+    else if(self.adjustModeFlag == ADJUST_MODE_DRAG){
+        self.adjustModeFlag = ADJUST_MODE_COMPOSITE;
+        [self.adjustModeButton setTitle:@"合成モード" forState:UIControlStateNormal];
         [self.modeButton setEnabled:YES];
         [self.saveButton setEnabled:YES];
         [self.resetButton setEnabled:NO];
         [self.nextImageButton setEnabled:YES];
     }
+    else{
+        return;
+    }
     self.imageManager.needUpdate = YES;
-    [self updateImageView];
-}
-
-- (IBAction)resetPoint:(id)sender {
-    if([self.adjustMode isOn] ==NO)
-        self.imageManager.needUpdate = YES;
-    self.imageManager.startPoint = CGPointZero;
     [self updateImageView];
 }
 
@@ -168,7 +178,7 @@
     }
     else
     {
-        if([self.adjustMode isOn] == YES)
+        if(self.adjustModeFlag == ADJUST_MODE_DRAG)
         {
             [self clearScrollView];
             self.layerView = [[UIImageView alloc]initWithImage:self.imageManager.image2];
@@ -241,7 +251,7 @@
 //ドラッグ中や終了時には描画を決定する。
 - (void) handlePanGesture:(UIPanGestureRecognizer*) pan {
     
-    if(self.adjustMode.isOn == NO) return ;
+    if(self.adjustModeFlag == ADJUST_MODE_COMPOSITE) return ;
     
     if(pan.state == UIGestureRecognizerStateBegan)
     {
@@ -399,4 +409,5 @@
     self.openMode = 2;
     [self startPicker];
 }
+
 @end

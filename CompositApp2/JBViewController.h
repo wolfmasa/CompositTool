@@ -39,8 +39,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *adjustModeLabel;
 
 //Mode Controll
-@property (weak, nonatomic) IBOutlet UISwitch *adjustMode;
-- (IBAction)changeAdjustMode:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *adjustModeButton;
+- (IBAction)pushAdjustModeButton:(id)sender;
+@property int adjustModeFlag;
 
 //Ratio Slider
 @property (weak, nonatomic) IBOutlet UISlider *compositSlider;
