@@ -42,7 +42,6 @@
 @property (weak, nonatomic) IBOutlet UISwitch *adjustMode;
 - (IBAction)changeAdjustMode:(id)sender;
 
-
 //Ratio Slider
 @property (weak, nonatomic) IBOutlet UISlider *compositSlider;
 - (IBAction)changeRatio:(id)sender;
@@ -53,6 +52,8 @@
 
 //Timer
 @property(weak, nonatomic)NSTimer *timer;
+
+//Progress
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
 
 //param

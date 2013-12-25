@@ -467,6 +467,7 @@
 				004D28D117FBE0CE00771F83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		004D28D217FBE0CE00771F83 /* Build configuration list for PBXNativeTarget "CompositApp2Tests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +476,7 @@
 				004D28D417FBE0CE00771F83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

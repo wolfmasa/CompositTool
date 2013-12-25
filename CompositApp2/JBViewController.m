@@ -304,6 +304,7 @@
         [self.openImage1Button setEnabled:YES];
         [self.openImage2Button setEnabled:YES];
         [self updateCompositSliderEnableStatus];
+        if(self.imageManager.progress >= 1.0) self.imageManager.progress = 0;
     }
     self.progress.progress = self.imageManager.progress;
 }

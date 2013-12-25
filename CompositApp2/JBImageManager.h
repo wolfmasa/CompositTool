@@ -12,7 +12,6 @@
 
 @property(retain, nonatomic)UIImage *image1;//背景
 @property(retain, nonatomic)UIImage *image2;//重ね画像
-
 @property(retain, nonatomic)UIImage *result;//合成結果
 
 @property float ratio;
