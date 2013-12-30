@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 #import "JBImageManager.h"
 
 @interface JBViewController : UIViewController<UITabBarControllerDelegate, UIScrollViewDelegate
-                            , UIActionSheetDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+                            , UIActionSheetDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate
+                            , ADBannerViewDelegate>
 
 //ImageViews
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -63,6 +65,7 @@
 @property int openMode;
 @property float baseViewScale;
 
+@property (weak, nonatomic) IBOutlet ADBannerView *adBanner;
 
 -(void)updateImageView;
 

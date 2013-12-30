@@ -24,6 +24,8 @@ enum ADJUST_MODE {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    self.adBanner.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;//広告表示の種類（画面の向き）
+    
     self.isDrag = false;
     self.progress.progress = 1.0;
     self.adjustMode = ADJUST_MODE_COMPOSITE;
@@ -408,6 +410,27 @@ enum ADJUST_MODE {
     self.imageManager.image1 = self.imageManager.result;
     self.openMode = 2;
     [self startPicker];
+}
+
+#pragma mark iAd Delegate
+//iAd取得成功
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    NSLog(@"iAd取得成功");
+    self.adBanner.hidden = NO;
+
+    [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
+    // Assumes the banner view is just off the bottom of the screen.
+    banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
+    [UIView commitAnimations];
+
+}
+
+//iAd取得失敗
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"iAd取得失敗");
+    self.adBanner.hidden = YES;
 }
 
 @end

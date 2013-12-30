@@ -19,6 +19,12 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ji-DX-dDh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oX6-s2-z3F">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    </adBannerView>
+                                </subviews>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eDn-a0-7W0">
                                 <rect key="frame" x="0.0" y="356" width="320" height="2"/>
@@ -105,6 +111,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="adBanner" destination="oX6-s2-z3F" id="ou1-r3-NSd"/>
                         <outlet property="adjustModeButton" destination="YAt-pS-hDu" id="8eK-j7-vIa"/>
                         <outlet property="compositSlider" destination="jbx-Qi-tmT" id="rBM-J2-Krf"/>
                         <outlet property="modeButton" destination="4oO-QC-2cO" id="qh1-Kx-n1T"/>

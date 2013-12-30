@@ -22,6 +22,7 @@
 		004D28CA17FBE0CE00771F83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 004D28C817FBE0CE00771F83 /* InfoPlist.strings */; };
 		004D28CC17FBE0CE00771F83 /* CompositApp2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004D28CB17FBE0CE00771F83 /* CompositApp2Tests.m */; };
 		004D28D717FBE0F600771F83 /* JBImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 004D28D617FBE0F600771F83 /* JBImageManager.m */; };
+		4417343D1871D97D00930EE4 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4417343C1871D97D00930EE4 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		004D28CB17FBE0CE00771F83 /* CompositApp2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompositApp2Tests.m; sourceTree = "<group>"; };
 		004D28D517FBE0F600771F83 /* JBImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBImageManager.h; sourceTree = "<group>"; };
 		004D28D617FBE0F600771F83 /* JBImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBImageManager.m; sourceTree = "<group>"; };
+		4417343C1871D97D00930EE4 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4417343D1871D97D00930EE4 /* iAd.framework in Frameworks */,
 				004D28A317FBE0CE00771F83 /* CoreGraphics.framework in Frameworks */,
 				004D28A517FBE0CE00771F83 /* UIKit.framework in Frameworks */,
 				004D28A117FBE0CE00771F83 /* Foundation.framework in Frameworks */,
@@ -104,6 +107,7 @@
 		004D289F17FBE0CE00771F83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4417343C1871D97D00930EE4 /* iAd.framework */,
 				004D28A017FBE0CE00771F83 /* Foundation.framework */,
 				004D28A217FBE0CE00771F83 /* CoreGraphics.framework */,
 				004D28A417FBE0CE00771F83 /* UIKit.framework */,
